@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteX="0dp">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -17,20 +17,20 @@
         android:text="Ort eingeben"
         android:layout_marginLeft="6dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button"
+        app:layout_constraintRight_toLeftOf="@+id/button_search"
         android:layout_marginRight="8dp"
         app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Suchen"
         android:layout_marginRight="14dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText_search" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
