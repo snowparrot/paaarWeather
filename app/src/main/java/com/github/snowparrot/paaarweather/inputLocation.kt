@@ -6,9 +6,13 @@ package com.github.snowparrot.paaarweather
 
 
 class inputLocation (location: String): webLocation {
-    val _location: String = location
+    val location: String?
+
+    init {
+        this.location = location
+    }
 
     override fun getWeblocation(): String {
-        return("q=" + _location)
+        return("q=" + location)
     }
 }
