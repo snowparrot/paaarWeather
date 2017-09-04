@@ -66,7 +66,7 @@ class WeatherHttpClient {
         }
     }
     companion object {
-        private val BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
+        private val BASE_URL = "http://api.openweathermap.org/data/2.5/weather?units=metric&"
         private val IMG_URL = "http://openweathermap.org/img/w/"
     }
 }
