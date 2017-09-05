@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONObject
@@ -40,14 +41,23 @@ class MainActivity : Activity() {
         var request = Volley.newRequestQueue(this)
         var url = BASE_URL + inputLocation(editText_search.text.toString()).getWeblocation()
 
+        var toast = Toast.makeText(this, R.string.error_internet, Toast.LENGTH_LONG)
         var JsonReqeust = JsonObjectRequest(Request.Method.GET, url, null,
-                Response.Listener<JSONObject> {
+                object: Response.Listener<JSONObject> {
+                    override fun onResponse(response: JSONObject?) {
+                        if (response == null) {
+                            toast.show()
+                            return
+                        }
 
+
+
+                    }
                 },
                 Response.ErrorListener {
-                    var toast = Toast.makeText(this, R.string.error_internet, Toast.LENGTH_LONG)
                     toast.show()
-        })
+                })
+
 
     }
 }
