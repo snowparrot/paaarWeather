@@ -1,12 +1,13 @@
 package com.github.snowparrot.paaarweather
-
+/*
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL
+import com.android.volley*/
 
 /**
  * Created by snowparrot on 04.09.17.
- */
+ *//*
 class WeatherHttpClient {
     fun getWeatherData(location: webLocation): String? {
 
@@ -69,4 +70,4 @@ class WeatherHttpClient {
         private val BASE_URL = "http://api.openweathermap.org/data/2.5/weather?units=metric&"
         private val IMG_URL = "http://openweathermap.org/img/w/"
     }
-}
+}*/
