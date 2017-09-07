@@ -1,4 +1,4 @@
-package com.github.snowparrot.paaarweather.symbolS
+package com.github.snowparrot.paaarweather.symbols
 
 /**
  * Created by snowparrot on 07.09.17.
@@ -10,7 +10,7 @@ enum class weatherIcons {
     NIGHT_RAINANDMOON, NIGHT_THUNDER, NIGHT_SNOW, NIGHT_MIST
 }
 
-public fun stringToWeatherIcons (response : String) : weatherIcons {
+public fun parseStringToWeatherIcons(response : String) : weatherIcons {
     var e = Exception("parseError")
     when (response) {
         "01d" -> return weatherIcons.DAY_SUN

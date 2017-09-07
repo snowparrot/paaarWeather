@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import com.github.snowparrot.paaarweather.symbols.*
+
 
 class WeatherView : Activity() {
 
@@ -17,6 +19,7 @@ class WeatherView : Activity() {
     lateinit var temperature: String
 
     lateinit var textLocation: TextView
+    lateinit var iconWeather: weatherIcons
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(16974382) // Theme_Material_NoActionBar
@@ -27,6 +30,8 @@ class WeatherView : Activity() {
         var b = intent
         location = b.getStringExtra("location")
         temperature = b.getStringExtra("temperature")
+
+        iconWeather = parseStringToWeatherIcons(b.getStringExtra("symbol"))
 
         textLocation.setText(location)
 
