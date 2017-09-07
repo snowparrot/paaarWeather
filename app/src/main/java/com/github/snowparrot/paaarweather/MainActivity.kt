@@ -20,7 +20,7 @@ class MainActivity : Activity() {
 
 
     //TODO: Spinner hinzufügen
-    private val BASE_URL = "http://api.openweathermap.org/data/2.5/weather?units=metric&&appid=b7359d3782b564e9f9460edf76587eee&"
+    private val BASE_URL = "http://api.openweathermap.org/data/2.5/weather?units=metric&&appid=b7359d3782b564e9f9460edf76587eee&lang=de&"
 
     private lateinit var button_search : Button
     private lateinit var editText_search : EditText
