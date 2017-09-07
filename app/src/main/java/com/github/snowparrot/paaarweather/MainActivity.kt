@@ -18,6 +18,8 @@ import org.json.JSONObject
 
 class MainActivity : Activity() {
 
+
+    //TODO: Spinner hinzufügen
     private val BASE_URL = "http://api.openweathermap.org/data/2.5/weather?units=metric&&appid=b7359d3782b564e9f9460edf76587eee&"
 
     private lateinit var button_search : Button
@@ -35,17 +37,11 @@ class MainActivity : Activity() {
 
         queue = Volley.newRequestQueue(this)
         button_search.setOnClickListener{
-            /*val i  = Intent(this, WeatherView::class.java)
-            var location =  editText_search.text ?: ""
-
-            var bundle = Bundle()
-            bundle.putString("location", location.toString())
-            i.putExtras(bundle)
-            startActivity(i)*/
 
             var url = BASE_URL + inputLocation(editText_search.text.toString()).getWeblocation()
 
             var toast = Toast.makeText(this, R.string.error_internet, Toast.LENGTH_LONG)
+            val i  = Intent(this, WeatherView::class.java)
             var JsonReqeust = JsonObjectRequest(Request.Method.GET, url, null,
                     object: Response.Listener<JSONObject> {
                         override fun onResponse(response: JSONObject?) {
@@ -53,8 +49,20 @@ class MainActivity : Activity() {
                                 toast.show()
                                 return
                             }
+                            else {
+                                var location = response.get("name")
+                                var temperature = (response.get("main") as JSONObject).get("temp")
 
-                            editText_search.setText(response.toString())
+                                var JArray = response.getJSONArray("weather")[0] as JSONObject
+                                var symbol = JArray.get("icon")
+
+                                var bundle = Bundle()
+                                bundle.putString("location", location.toString())
+                                bundle.putString("temperature", temperature.toString())
+                                bundle.putString("symbol", symbol.toString())
+                                i.putExtras(bundle)
+                                startActivity(i)
+                            }
                         }
                     },
                     object : Response.ErrorListener {
@@ -65,6 +73,9 @@ class MainActivity : Activity() {
                     })
             queue.add(JsonReqeust)
         }
+
+
+
 
 
     }
