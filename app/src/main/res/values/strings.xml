@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">paaarWeather</string>
     <string name="error_internet">Es gibt ein Problem. Überprüfe die Verbindung.</string>
+    <string name="enter_location">Ort eingeben</string>
+    <string name="search">Suchen</string>
 </resources>

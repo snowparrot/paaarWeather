@@ -34,13 +34,14 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
         button_search = findViewById(R.id.button_search)
         editText_search = findViewById(R.id.editText_search)
+        editText_search.setText(R.string.enter_location)
 
         queue = Volley.newRequestQueue(this)
         button_search.setOnClickListener{
 
-            var url = BASE_URL + inputLocation(editText_search.text.toString()).getWeblocation()
+            val url = BASE_URL + inputLocation(editText_search.text.toString()).getWeblocation()
 
-            var toast = Toast.makeText(this, R.string.error_internet, Toast.LENGTH_LONG)
+            val toast = Toast.makeText(this, R.string.error_internet, Toast.LENGTH_LONG)
             val i  = Intent(this, WeatherView::class.java)
             var JsonReqeust = JsonObjectRequest(Request.Method.GET, url, null,
                     object: Response.Listener<JSONObject> {
@@ -67,16 +68,17 @@ class MainActivity : Activity() {
                     },
                     object : Response.ErrorListener {
                         public override fun onErrorResponse(error: VolleyError?) {
-                            kotlin.error(error.toString())
                             toast.show()
+                            kotlin.error(error.toString())
+
                         }
                     })
             queue.add(JsonReqeust)
         }
-
-
-
-
-
+    editText_search.setOnClickListener({
+        if (editText_search.getText().toString() == resources.getString(R.string.enter_location)) {
+            editText_search.setText("")
+        }
+    })
     }
 }
