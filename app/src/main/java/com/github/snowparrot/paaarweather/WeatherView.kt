@@ -42,7 +42,7 @@ class WeatherView : Activity() {
         textLocation.setText(location)
         weatherImage.setImageResource(getImageByweatherIcon(iconWeather))
         textTemperature.setText(temperature)
-
+//
 
 
     }
